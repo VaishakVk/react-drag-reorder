@@ -53,3 +53,5 @@ export default Drag;
 ## Result
 
 ![](react-drag-reorder.gif)
+
+Contributors are welcome ! :)
