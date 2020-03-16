@@ -22,11 +22,7 @@
 		"type": "git",
 		"url": "https://github.com/VaishakVk/react-drag-reorder/"
 	},
-	"dependencies": {
-		"@testing-library/jest-dom": "^4.2.4",
-		"@testing-library/react": "^9.3.2",
-		"@testing-library/user-event": "^7.1.2"
-	},
+	"dependencies": {},
 	"devDependencies": {
 		"@babel/cli": "^7.8.4",
 		"@babel/plugin-proposal-class-properties": "^7.8.3",
