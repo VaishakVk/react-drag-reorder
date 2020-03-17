@@ -60,7 +60,7 @@ Support added to contain nested draggable components.
 
 > Please make sure to sort the parent components first before reordering the child.
 
-```js
+```javascript
 class Test extends Component {
 	state = {
 		words: ["Hello", "Hi", "How are you", "Cool"],
