@@ -1,18 +1,20 @@
 import React from "react";
 
 import "./draggableChild.css";
-const DraggableChildComponent = props => {
-	return (
-		<div
-			draggable
-			onDragStart={props.dragStart}
-			onDragEnter={props.dragEnter}
-			onDragEnd={props.dragEnd}
-			className="grabbable"
-		>
-			{props.children}
-		</div>
-	);
-};
+class DraggableChildComponent extends React.Component {
+	render() {
+		return (
+			<div
+				draggable
+				onDragStart={this.props.dragStart}
+				onDragEnter={this.props.dragEnter}
+				onDragEnd={this.props.dragEnd}
+				className="grabbable"
+			>
+				{this.props.children}
+			</div>
+		);
+	}
+}
 
 export default DraggableChildComponent;

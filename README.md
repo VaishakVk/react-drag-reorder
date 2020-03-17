@@ -9,7 +9,7 @@ Installation is done using the
 $ npm install react-drag-reorder
 ```
 
-## Usage
+## Example
 
 Import `Draggable` from `react-drag-reorder` and wrap it between the components that you would like to drag and reorder.
 
@@ -26,32 +26,92 @@ import { Draggable } from "react-drag-reorder";
 
 class Drag extends Component {
 	state = {
-	  words: ["Hello", "Hi", "How are you", "Cool"]
+		words: ["Hello", "Hi", "How are you", "Cool"]
 	};
 	render() {
-	  return (
-	    <div className="flex-container">
-	  	<div className="row">
-		  <Draggable>
-		    {this.state.words.map((word, idx) => {
-		      return (
-			<div key={idx} className="flex-item">
-			  {word}
+		return (
+			<div className="flex-container">
+				<div className="row">
+					<Draggable>
+						{this.state.words.map((word, idx) => {
+							return (
+								<div key={idx} className="flex-item">
+									{word}
+								</div>
+							);
+						})}
+					</Draggable>
+				</div>
 			</div>
-		      );
-		    })}
-		  </Draggable>
-		</div>
-	   </div>
-	  );
+		);
 	}
 }
 
 export default Drag;
 ```
 
-## Result
-
 ![](react-drag-reorder.gif)
 
-Contributors are welcome ! :)
+## Updates
+
+### 1.0
+
+Support added to contain nested draggable components.
+
+> Please make sure to sort the parent components first before reordering the child.
+
+```js
+class Test extends Component {
+	state = {
+		words: ["Hello", "Hi", "How are you", "Cool"],
+		languages: ["C", "C++", "Java", "JS"],
+		shows: ["GOT", "Friends", "Big Bang"]
+	};
+	render() {
+		return (
+			<Draggable>
+				<div className="row">
+					<p className="text">Words</p>
+					<Draggable>
+						{this.state.words.map((word, idx) => {
+							return (
+								<div key={idx} className="flex-item">
+									{word}
+								</div>
+							);
+						})}
+					</Draggable>
+				</div>
+				<div className="row">
+					<p className="text">Languages</p>
+					<Draggable>
+						{this.state.languages.map((lng, idx) => {
+							return (
+								<div key={idx} className="flex-item">
+									{lng}
+								</div>
+							);
+						})}
+					</Draggable>
+				</div>
+				<div className="row">
+					<p className="text">Shows</p>
+					<Draggable>
+						{this.state.shows.map((lng, idx) => {
+							return (
+								<div key={idx} className="flex-item">
+									{lng}
+								</div>
+							);
+						})}
+					</Draggable>
+				</div>
+			</Draggable>
+		);
+	}
+}
+```
+
+![](nested-react-drag-reorder.gif)
+
+Contributors are welcome ! :smiley:

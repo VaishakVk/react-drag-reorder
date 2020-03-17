@@ -3,6 +3,8 @@
 }
 
 .grabbable {
+	flex: 1;
+	width: 100%;
 	cursor: move; /* fallback if grab cursor is unsupported */
 	cursor: grab;
 	cursor: -moz-grab;

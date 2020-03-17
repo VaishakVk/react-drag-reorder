@@ -23,13 +23,26 @@ class DraggableComponent extends Component {
       let divs = [...this.state.divs];
       let currentDiv = this.state.currentDiv;
       let toDiv = this.state.toDiv;
-      let currentEle = divs.splice(currentDiv, 1);
-      divs.splice(toDiv, 0, currentEle[0]);
-      this.setState({
-        divs,
-        currentDiv: null,
-        toDiv: null
-      });
+
+      if (currentDiv !== toDiv) {
+        let currentEle = { ...divs[currentDiv]
+        };
+        divs = divs.filter((val, idx) => {
+          return idx !== currentDiv;
+        });
+        divs.splice(toDiv, 0, currentEle); // This is a hack - Initialize the state as blank and then reset the state
+        // With only 1 setState, the entire component doesnot get rerendered.
+
+        this.setState({
+          divs: [],
+          currentDiv: null,
+          toDiv: null
+        }, () => {
+          this.setState({
+            divs
+          });
+        });
+      }
     });
 
     _defineProperty(this, "dragStart", idx => {
@@ -50,14 +63,18 @@ class DraggableComponent extends Component {
   }
 
   render() {
-    return React.createElement(React.Fragment, null, this.state.divs.map((ele, idx) => {
-      return React.createElement(DraggableChildComponent, {
-        dragStart: () => this.dragStart(idx),
-        dragEnter: () => this.dragEnter(idx),
+    let ele = [];
+
+    for (let i = 0; i < this.state.divs.length; i++) {
+      ele.push(React.createElement(DraggableChildComponent, {
+        dragStart: () => this.dragStart(i),
+        dragEnter: () => this.dragEnter(i),
         dragEnd: this.dragDrop,
-        key: idx
-      }, ele);
-    }));
+        key: i
+      }, this.state.divs[i]));
+    }
+
+    return React.createElement(React.Fragment, null, ele);
   }
 
 }
