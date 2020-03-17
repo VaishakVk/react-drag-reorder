@@ -25,31 +25,30 @@ import React, { Component } from "react";
 import { Draggable } from "react-drag-reorder";
 
 class Drag extends Component {
-	state = {
-		words: ["Hello", "Hi", "How are you", "Cool"]
-	};
-	render() {
-		return (
-			<div className="flex-container">
-				<div className="row">
-					<Draggable>
-						{this.state.words.map((word, idx) => {
-							return (
-								<div key={idx} className="flex-item">
-									{word}
-								</div>
-							);
-						})}
-					</Draggable>
-				</div>
-			</div>
-		);
-	}
+  state = {
+    words: ["Hello", "Hi", "How are you", "Cool"]
+  };
+  render() {
+    return (
+      <div className="flex-container">
+        <div className="row">
+          <Draggable>
+            {this.state.words.map((word, idx) => {
+              return (
+                <div key={idx} className="flex-item">
+                  {word}
+                </div>
+              );
+            })}
+          </Draggable>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default Drag;
 ```
-
 ![](react-drag-reorder.gif)
 
 ## Updates
@@ -60,55 +59,55 @@ Support added to contain nested draggable components.
 
 > Please make sure to sort the parent components first before reordering the child.
 
-```javascript
+```js
 class Test extends Component {
-	state = {
-		words: ["Hello", "Hi", "How are you", "Cool"],
-		languages: ["C", "C++", "Java", "JS"],
-		shows: ["GOT", "Friends", "Big Bang"]
-	};
-	render() {
-		return (
-			<Draggable>
-				<div className="row">
-					<p className="text">Words</p>
-					<Draggable>
-						{this.state.words.map((word, idx) => {
-							return (
-								<div key={idx} className="flex-item">
-									{word}
-								</div>
-							);
-						})}
-					</Draggable>
-				</div>
-				<div className="row">
-					<p className="text">Languages</p>
-					<Draggable>
-						{this.state.languages.map((lng, idx) => {
-							return (
-								<div key={idx} className="flex-item">
-									{lng}
-								</div>
-							);
-						})}
-					</Draggable>
-				</div>
-				<div className="row">
-					<p className="text">Shows</p>
-					<Draggable>
-						{this.state.shows.map((lng, idx) => {
-							return (
-								<div key={idx} className="flex-item">
-									{lng}
-								</div>
-							);
-						})}
-					</Draggable>
-				</div>
-			</Draggable>
-		);
-	}
+  state = {
+    words: ["Hello", "Hi", "How are you", "Cool"],
+    languages: ["C", "C++", "Java", "JS"],
+    shows: ["GOT", "Friends", "Big Bang"]
+  };
+  render() {
+    return (
+      <Draggable>
+        <div className="row">
+          <p className="text">Words</p>
+          <Draggable>
+            {this.state.words.map((word, idx) => {
+              return (
+                <div key={idx} className="flex-item">
+                  {word}
+                </div>
+              );
+            })}
+          </Draggable>
+        </div>
+        <div className="row">
+          <p className="text">Languages</p>
+          <Draggable>
+            {this.state.languages.map((lng, idx) => {
+              return (
+                <div key={idx} className="flex-item">
+                  {lng}
+                </div>
+              );
+            })}
+          </Draggable>
+        </div>
+        <div className="row">
+          <p className="text">Shows</p>
+          <Draggable>
+            {this.state.shows.map((lng, idx) => {
+              return (
+                <div key={idx} className="flex-item">
+                  {lng}
+                </div>
+              );
+            })}
+          </Draggable>
+        </div>
+      </Draggable>
+    );
+  }
 }
 ```
 
