@@ -23,9 +23,10 @@ class DraggableComponent extends Component {
       let divs = [...this.state.divs];
       let currentDiv = this.state.currentDiv;
       let toDiv = this.state.toDiv;
+      let currentEle;
 
       if (currentDiv !== toDiv) {
-        let currentEle = { ...divs[currentDiv]
+        currentEle = { ...divs[currentDiv]
         };
         divs = divs.filter((val, idx) => {
           return idx !== currentDiv;
@@ -43,6 +44,8 @@ class DraggableComponent extends Component {
           });
         });
       }
+
+      if (this.props?.onPosChange) this.props.onPosChange(currentDiv, toDiv, currentEle);
     });
 
     _defineProperty(this, "dragStart", idx => {
@@ -66,7 +69,7 @@ class DraggableComponent extends Component {
     let ele = [];
 
     for (let i = 0; i < this.state.divs.length; i++) {
-      ele.push(React.createElement(DraggableChildComponent, {
+      ele.push( /*#__PURE__*/React.createElement(DraggableChildComponent, {
         dragStart: () => this.dragStart(i),
         dragEnter: () => this.dragEnter(i),
         dragEnd: this.dragDrop,
@@ -74,7 +77,7 @@ class DraggableComponent extends Component {
       }, this.state.divs[i]));
     }
 
-    return React.createElement(React.Fragment, null, ele);
+    return /*#__PURE__*/React.createElement(React.Fragment, null, ele);
   }
 
 }

@@ -3,7 +3,7 @@ import "./draggableChild.css";
 
 class DraggableChildComponent extends React.Component {
   render() {
-    return React.createElement("div", {
+    return /*#__PURE__*/React.createElement("div", {
       draggable: true,
       onDragStart: this.props.dragStart,
       onDragEnter: this.props.dragEnter,

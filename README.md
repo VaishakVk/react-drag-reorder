@@ -26,7 +26,7 @@ import { Draggable } from "react-drag-reorder";
 
 class Drag extends Component {
   state = {
-    words: ["Hello", "Hi", "How are you", "Cool"]
+    words: ["Hello", "Hi", "How are you", "Cool"],
   };
   render() {
     return (
@@ -49,6 +49,50 @@ class Drag extends Component {
 
 export default Drag;
 ```
+
+## Getting the current position and new position of element
+
+| Props       | Description                | type                           |
+| ----------- | -------------------------- | ------------------------------ |
+| onPosChange | subscribe to change events | function (currentPos , newPos) |
+
+### Example
+
+```js
+import React, { Component } from "react";
+import { Draggable } from "react-drag-reorder";
+
+class Drag extends Component {
+  state = {
+    words: ["Hello", "Hi", "How are you", "Cool"],
+  };
+
+  getChangedPos = (currentPos, newPos) => {
+    console.log(currentPos, newPos);
+  };
+
+  render() {
+    return (
+      <div className="flex-container">
+        <div className="row">
+          <Draggable onPosChange={this.getChangedPos}>
+            {this.state.words.map((word, idx) => {
+              return (
+                <div key={idx} className="flex-item">
+                  {word}
+                </div>
+              );
+            })}
+          </Draggable>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default Drag;
+```
+
 ![](react-drag-reorder.gif)
 
 ## Updates
@@ -64,7 +108,7 @@ class Test extends Component {
   state = {
     words: ["Hello", "Hi", "How are you", "Cool"],
     languages: ["C", "C++", "Java", "JS"],
-    shows: ["GOT", "Friends", "Big Bang"]
+    shows: ["GOT", "Friends", "Big Bang"],
   };
   render() {
     return (
