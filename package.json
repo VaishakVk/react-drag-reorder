@@ -4,8 +4,10 @@
 	"private": false,
 	"main": "dist/index.js",
 	"module": "dist/index.js",
+	"typings": "types/index.d.ts",
 	"files": [
 		"dist",
+		"types",
 		"README.md"
 	],
 	"babel": {
