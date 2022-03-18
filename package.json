@@ -1,64 +1,64 @@
 {
-	"name": "react-drag-reorder",
-	"version": "1.1.0",
-	"private": false,
-	"main": "dist/index.js",
-	"module": "dist/index.js",
-	"typings": "types/index.d.ts",
-	"files": [
-		"dist",
-		"types",
-		"README.md"
-	],
-	"babel": {
-		"presets": [
-			"@babel/preset-react"
-		],
-		"plugins": [
-			[
-				"@babel/plugin-proposal-class-properties"
-			]
-		]
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/VaishakVk/react-drag-reorder/"
-	},
-	"dependencies": {},
-	"devDependencies": {
-		"@babel/cli": "^7.8.4",
-		"@babel/plugin-proposal-class-properties": "^7.8.3",
-		"@babel/preset-react": "^7.8.3",
-		"react": "^16.13.0",
-		"react-dom": "^16.13.0",
-		"react-scripts": "3.4.0"
-	},
-	"keywords": [
-		"react",
-		"draggable",
-		"react-component",
-		"reorder"
-	],
-	"license": "MIT",
-	"scripts": {
-		"start": "react-scripts start",
-		"build": "rm -rf dist && mkdir dist && babel ./src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
-		"test": "react-scripts test",
-		"eject": "react-scripts eject"
-	},
-	"eslintConfig": {
-		"extends": "react-app"
-	},
-	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
-	}
+    "name": "react-drag-reorder",
+    "version": "1.2.0",
+    "private": false,
+    "main": "dist/index.js",
+    "module": "dist/index.js",
+    "typings": "types/index.d.ts",
+    "files": [
+        "dist",
+        "types",
+        "README.md"
+    ],
+    "babel": {
+        "presets": [
+            "@babel/preset-react"
+        ],
+        "plugins": [
+            [
+                "@babel/plugin-proposal-class-properties"
+            ]
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/VaishakVk/react-drag-reorder/"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "@babel/cli": "^7.8.4",
+        "@babel/plugin-proposal-class-properties": "^7.8.3",
+        "@babel/preset-react": "^7.8.3",
+        "react": "^16.13.0",
+        "react-dom": "^16.13.0",
+        "react-scripts": "3.4.0"
+    },
+    "keywords": [
+        "react",
+        "draggable",
+        "react-component",
+        "reorder"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "rm -rf dist && mkdir dist && babel ./src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
 }
