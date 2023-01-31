@@ -74,6 +74,7 @@ class DraggableComponent extends Component {
         dragEnter: () => this.dragEnter(i),
         dragEnd: this.dragDrop,
         key: i
+        elType: this.props.elType ? this.props.elType : "div"
       }, this.state.divs[i]));
     }
 
